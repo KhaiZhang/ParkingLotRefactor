@@ -41,6 +41,5 @@ public class ParkingBoy {
         }catch (NoSuchElementException ex){
             throw new NoSuchElementException("Unrecognized parking ticket");
         }
-
     }
 }
