@@ -8,7 +8,12 @@ public class ParkingBoy {
     private List<ParkingLot> parkingLots;
 
     public ParkingBoy(List<ParkingLot> parkingLots) {
+
         this.parkingLots = parkingLots;
+    }
+
+    public List<ParkingLot> getParkingLots() {
+        return parkingLots;
     }
 
     public Ticket parkCar(Car car) throws Exception{
@@ -21,7 +26,6 @@ public class ParkingBoy {
         }catch (NoSuchElementException ex){
             throw  new Exception("Not enough position");
         }
-
     }
 
     public Car fetchCar(Ticket ticket) throws Exception {

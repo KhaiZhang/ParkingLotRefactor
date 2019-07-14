@@ -30,4 +30,8 @@ public class ParkingLot {
     public boolean isTheTicketForThisParkingLot(Ticket ticket){
         return parkingCarTicket.containsKey(ticket);
     }
+
+    public int getRemainPakingSpacaNumber(){
+        return capacity-parkingCarTicket.size();
+    }
 }

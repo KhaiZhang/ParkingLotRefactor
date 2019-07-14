@@ -27,7 +27,7 @@ public class ParkingBoyTest {
         Ticket ticket = parkingBoy.parkCar(car);
         Car actualCar = parkingBoy.fetchCar(ticket);
         //then
-        assertThat(actualCar, is(car));
+        assertThat(car, is(actualCar));
     }
 
     @Test
@@ -46,8 +46,8 @@ public class ParkingBoyTest {
         Car actualSecondCar = parkingBoy.fetchCar(secondTicket);
 
         //then
-        assertThat(actualFirstCar, is(firstCar));
-        assertThat(actualSecondCar, is(secondCar));
+        assertThat(firstCar, is(actualFirstCar));
+        assertThat(secondCar, is(actualSecondCar));
     }
 
     @Test
