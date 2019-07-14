@@ -26,11 +26,19 @@ public class ParkingLot {
         if(ticket == null){
             throw new NullPointerException("Please provide your parking ticket");
         }
-        Car car =parkingCarTicket.get(ticket);
+        Car car = parkingCarTicket.get(ticket);
        if(car == null){
            throw new NullPointerException("Unrecognized parking ticket");
        }
        parkingCarTicket.remove(ticket);
        return car;
+    }
+
+    public boolean isParkingSpaceRemain(){
+        return parkingCarTicket.size() < capacity ? true : false;
+    }
+
+    public boolean isTheTicketForThisParkingLot(Ticket ticket){
+        return parkingCarTicket.containsKey(ticket);
     }
 }

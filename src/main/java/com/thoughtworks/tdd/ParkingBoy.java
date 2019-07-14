@@ -1,17 +1,27 @@
 package com.thoughtworks.tdd;
 
-public class ParkingBoy {
-    private ParkingLot parkingLot;
+import java.util.List;
 
-    public ParkingBoy(ParkingLot parkingLot) {
-        this.parkingLot = parkingLot;
+public class ParkingBoy {
+    private List<ParkingLot> parkingLots;
+
+    public ParkingBoy(List<ParkingLot> parkingLots) {
+        this.parkingLots = parkingLots;
     }
 
     public Ticket parkCar(Car car) throws Exception{
-        return parkingLot.parkCarIntoParkingLot(car);
+        return parkingLots.stream()
+                .filter(parkingLot -> parkingLot.isParkingSpaceRemain())
+                .findFirst()
+                .get()
+                .parkCarIntoParkingLot(car);
     }
 
     public Car fetchCar(Ticket ticket) throws NullPointerException{
-        return parkingLot.takeCarOutOfParkingLot(ticket);
+        return parkingLots.stream()
+                .filter(parkingLot -> parkingLot.isTheTicketForThisParkingLot(ticket))
+                .findAny()
+                .get()
+                .takeCarOutOfParkingLot(ticket);
     }
 }

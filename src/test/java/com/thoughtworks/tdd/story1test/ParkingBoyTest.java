@@ -19,7 +19,9 @@ public class ParkingBoyTest {
         //given
         Car car = new Car("C：12138");
         ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         //when
         Ticket ticket = parkingBoy.parkCar(car);
         Car actualCar = parkingBoy.fetchCar(ticket);
@@ -33,7 +35,9 @@ public class ParkingBoyTest {
         Car firstCar = new Car("C：12138");
         Car secondCar = new Car("C：12306");
         ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         //when
         Ticket firstTicket = parkingBoy.parkCar(firstCar);
         Car actualFirstCar = parkingBoy.fetchCar(firstTicket);
@@ -50,7 +54,9 @@ public class ParkingBoyTest {
         //given
         Car car = new Car("C：12138");
         ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         //when
         Ticket nullTicket = null;
         Ticket wrongTicket = new Ticket();
@@ -64,7 +70,9 @@ public class ParkingBoyTest {
         //given
         Car car = new Car("C：12138");
         ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         //when
         Ticket ticket = parkingBoy.parkCar(car);
         Car fetchedCar = parkingBoy.fetchCar(ticket);
@@ -80,7 +88,9 @@ public class ParkingBoyTest {
             Cars.add(new Car(String.format("C:121 %s","0"+i)));
         }
         ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         //when
         for (Car element : Cars) {
             parkingBoy.parkCar(element);
