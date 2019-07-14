@@ -19,7 +19,7 @@ public class ParkingBoyTest {
     public void should_return_car_when_given_ticket() throws Exception{
         //given
         Car car = new Car("C：12138");
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
@@ -35,7 +35,7 @@ public class ParkingBoyTest {
         //given
         Car firstCar = new Car("C：12138");
         Car secondCar = new Car("C：12306");
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
@@ -54,7 +54,7 @@ public class ParkingBoyTest {
     public void should_not_return_car_when_given_wrong_ticket()throws Exception{
         //given
         Car car = new Car("C：12138");
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
@@ -70,7 +70,7 @@ public class ParkingBoyTest {
     public void should_not_return_car_when_given_ticket_that_has_been_used() throws Exception{
         //given
         Car car = new Car("C：12138");
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
@@ -88,7 +88,7 @@ public class ParkingBoyTest {
         for (int i = 0; i <10 ; i++) {
             Cars.add(new Car(String.format("C:121 %s","0"+i)));
         }
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);

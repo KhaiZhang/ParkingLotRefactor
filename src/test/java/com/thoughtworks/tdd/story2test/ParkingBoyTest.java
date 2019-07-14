@@ -18,7 +18,7 @@ public class ParkingBoyTest {
     public void should_return_message_Unrecongnized_parking_ticket_when_given_wrong_ticket() throws Exception{
         //given
         Car car = new Car("C：12138");
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
@@ -34,7 +34,7 @@ public class ParkingBoyTest {
     public void should_return_prompt_message_when_does_not_privide_ticket()throws Exception{
         //given
         Car car = new Car("C：12138");
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
@@ -53,7 +53,7 @@ public class ParkingBoyTest {
         for (int i = 0; i <10 ; i++) {
             Cars.add(new Car(String.format("C:121 %s","0"+i)));
         }
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);

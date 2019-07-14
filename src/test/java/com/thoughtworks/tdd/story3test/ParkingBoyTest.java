@@ -21,8 +21,8 @@ public class ParkingBoyTest {
         for (int i = 0; i <10 ; i++) {
             Cars.add(new Car(String.format("C:121 %s","0"+i)));
         }
-        ParkingLot firstParkingLot = new ParkingLot();
-        ParkingLot secondParkingLot = new ParkingLot();
+        ParkingLot firstParkingLot = new ParkingLot(10);
+        ParkingLot secondParkingLot = new ParkingLot(10);
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(firstParkingLot);
         parkingLots.add(secondParkingLot);
