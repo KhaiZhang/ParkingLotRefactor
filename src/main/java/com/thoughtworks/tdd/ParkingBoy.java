@@ -11,7 +11,7 @@ public class ParkingBoy {
         return parkingLot.parkCarIntoParkingLot(car);
     }
 
-    public Car fetchCar(Ticket ticket){
+    public Car fetchCar(Ticket ticket) throws NullPointerException{
         return parkingLot.takeCarOutOfParkingLot(ticket);
     }
 }

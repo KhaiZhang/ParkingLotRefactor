@@ -4,6 +4,7 @@ import com.thoughtworks.tdd.Car;
 import com.thoughtworks.tdd.ParkingBoy;
 import com.thoughtworks.tdd.ParkingLot;
 import com.thoughtworks.tdd.Ticket;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
@@ -38,5 +39,19 @@ public class ParkingBoyTest {
         //then
         assertThat(actualFirstCar, is(firstCar));
         assertThat(actualSecondCar, is(secondCar));
+    }
+
+    @Test
+    public void should_not_return_car_when_given_wrong_ticket() throws NullPointerException{
+        //given
+        Car car = new Car("C：12138");
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        //when
+        Ticket nullTicket = null;
+        Ticket wrongTicket = new Ticket();
+        //then
+        Assertions.assertThrows(NullPointerException.class,() ->parkingBoy.fetchCar(nullTicket));
+        Assertions.assertThrows(NullPointerException.class,() ->parkingBoy.fetchCar(wrongTicket));
     }
 }

@@ -4,19 +4,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ParkingLot {
-    private Map<Ticket,Car> parkingCarTicke;
+    private Map<Ticket,Car> parkingCarTicket;
 
     public ParkingLot() {
-        this.parkingCarTicke = new HashMap<>();
+        this.parkingCarTicket = new HashMap<>();
     }
 
     public Ticket parkCarIntoParkingLot(Car car){
         Ticket ticketNumber = new Ticket();
-        parkingCarTicke.put(ticketNumber,car);
+        parkingCarTicket.put(ticketNumber,car);
         return ticketNumber;
     }
 
     public Car takeCarOutOfParkingLot(Ticket ticket){
-        return parkingCarTicke.get(ticket);
+       if(parkingCarTicket.get(ticket) == null){
+           throw new NullPointerException("ticket is null or wrong");
+       }
+       return parkingCarTicket.get(ticket);
     }
 }
