@@ -24,7 +24,7 @@ public class ParkingLot {
 
     public Car takeCarOutOfParkingLot(Ticket ticket){
         if(ticket == null){
-            throw new NullPointerException("ticket is null");
+            throw new NullPointerException("Please provide your parking ticket");
         }
         Car car =parkingCarTicket.get(ticket);
        if(car == null){
