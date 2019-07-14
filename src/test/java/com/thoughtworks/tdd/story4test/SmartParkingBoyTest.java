@@ -15,7 +15,7 @@ public class SmartParkingBoyTest {
     public void should_parking_car_into_secondParkingLot_when_secondParkinglot_has_more_position() throws Exception{
         //given
         List<Car> Cars = new ArrayList<>();
-        for (int i = 0; i <5 ; i++) {
+        for (int i = 0; i <6 ; i++) {
             Cars.add(new Car(String.format("C:121 %s","0"+i)));
         }
         ParkingLot firstParkingLot = new ParkingLot();
