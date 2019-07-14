@@ -21,4 +21,22 @@ public class ParkingBoyTest {
         //then
         assertThat(actualCar, is(car));
     }
+
+    @Test
+    public void should_return_multiple_cars_when_given_correspond_ticket() {
+        //given
+        Car firstCar = new Car("C：12138");
+        Car secondCar = new Car("C：12306");
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        //when
+        Ticket firstTicket = parkingBoy.parkCar(firstCar);
+        Car actualFirstCar = parkingBoy.fetchCar(firstTicket);
+        Ticket secondTicket = parkingBoy.parkCar(secondCar);
+        Car actualSecondCar = parkingBoy.fetchCar(secondTicket);
+
+        //then
+        assertThat(actualFirstCar, is(firstCar));
+        assertThat(actualSecondCar, is(secondCar));
+    }
 }
