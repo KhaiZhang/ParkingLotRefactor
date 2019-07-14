@@ -6,6 +6,10 @@ import com.thoughtworks.tdd.ParkingLot;
 import com.thoughtworks.tdd.Ticket;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -66,5 +70,22 @@ public class ParkingBoyTest {
         Car fetchedCar = parkingBoy.fetchCar(ticket);
         //then
         Assertions.assertThrows(NullPointerException.class,() ->parkingBoy.fetchCar(ticket));
+    }
+
+    @Test
+    public void should_not_return_ticket_when_car_number_exceed_capacity() {
+        //given
+        List<Car> Cars = new ArrayList<>();
+        for (int i = 0; i <10 ; i++) {
+            Cars.add(new Car(String.format("C:121 %s","0"+i)));
+        }
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        //when
+        Cars.forEach(element -> {
+            parkingBoy.parkCar(element);
+        });
+        //then
+        assertThat(null, is(parkingBoy.parkCar(new Car("12110"))));
     }
 }
