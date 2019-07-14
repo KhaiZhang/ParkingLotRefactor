@@ -12,24 +12,13 @@ public class ParkingLot {
     }
 
     public Ticket parkCarIntoParkingLot(Car car) throws Exception{
-        if(parkingCarTicket.size() >= capacity){
-            throw new Exception("Not enough position");
-        }
-        else {
             Ticket ticketNumber = new Ticket();
             parkingCarTicket.put(ticketNumber,car);
             return ticketNumber;
-        }
     }
 
-    public Car takeCarOutOfParkingLot(Ticket ticket){
-        if(ticket == null){
-            throw new NullPointerException("Please provide your parking ticket");
-        }
+    public Car takeCarOutOfParkingLot(Ticket ticket)throws Exception{
         Car car = parkingCarTicket.get(ticket);
-       if(car == null){
-           throw new NullPointerException("Unrecognized parking ticket");
-       }
        parkingCarTicket.remove(ticket);
        return car;
     }

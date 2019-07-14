@@ -15,7 +15,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ParkingBoyTest {
     @Test
-    public void should_return_message_Unrecongnized_parking_ticket_when_given_wrong_ticket() throws NullPointerException{
+    public void should_return_message_Unrecongnized_parking_ticket_when_given_wrong_ticket() throws Exception{
         //given
         Car car = new Car("C：12138");
         ParkingLot parkingLot = new ParkingLot();
@@ -25,13 +25,13 @@ public class ParkingBoyTest {
         //when
         Ticket wrongTicket = new Ticket();
         //then
-        String exceptionMessage = Assertions.assertThrows(NullPointerException.class, () -> parkingBoy.fetchCar(wrongTicket)).getMessage();
+        String exceptionMessage = Assertions.assertThrows(Exception.class, () -> parkingBoy.fetchCar(wrongTicket)).getMessage();
         Assertions.assertTrue(exceptionMessage.contains("Unrecognized parking ticket"));
 
     }
 
     @Test
-    public void should_return_prompt_message_when_does_not_privide_ticket(){
+    public void should_return_prompt_message_when_does_not_privide_ticket()throws Exception{
         //given
         Car car = new Car("C：12138");
         ParkingLot parkingLot = new ParkingLot();
@@ -41,7 +41,7 @@ public class ParkingBoyTest {
         //when
         Ticket nullTicket = null;
         //then
-        String exceptionMessage = Assertions.assertThrows(NullPointerException.class, () -> parkingBoy.fetchCar(nullTicket)).getMessage();
+        String exceptionMessage = Assertions.assertThrows(Exception.class, () -> parkingBoy.fetchCar(nullTicket)).getMessage();
         Assertions.assertTrue(exceptionMessage.contains("Please provide your parking ticket"));
 
     }

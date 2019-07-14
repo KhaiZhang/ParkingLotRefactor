@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
@@ -50,7 +51,7 @@ public class ParkingBoyTest {
     }
 
     @Test
-    public void should_not_return_car_when_given_wrong_ticket() throws NullPointerException{
+    public void should_not_return_car_when_given_wrong_ticket()throws Exception{
         //given
         Car car = new Car("C：12138");
         ParkingLot parkingLot = new ParkingLot();
@@ -61,12 +62,12 @@ public class ParkingBoyTest {
         Ticket nullTicket = null;
         Ticket wrongTicket = new Ticket();
         //then
-        Assertions.assertThrows(NullPointerException.class,() ->parkingBoy.fetchCar(nullTicket));
-        Assertions.assertThrows(NullPointerException.class,() ->parkingBoy.fetchCar(wrongTicket));
+        Assertions.assertThrows(Exception.class,() ->parkingBoy.fetchCar(nullTicket));
+        Assertions.assertThrows(Exception.class,() ->parkingBoy.fetchCar(wrongTicket));
     }
 
     @Test
-    public void should_not_return_car_when_given_ticket_that_has_been_used() throws Exception,NullPointerException{
+    public void should_not_return_car_when_given_ticket_that_has_been_used() throws Exception{
         //given
         Car car = new Car("C：12138");
         ParkingLot parkingLot = new ParkingLot();
@@ -77,7 +78,7 @@ public class ParkingBoyTest {
         Ticket ticket = parkingBoy.parkCar(car);
         Car fetchedCar = parkingBoy.fetchCar(ticket);
         //then
-        Assertions.assertThrows(NullPointerException.class,() ->parkingBoy.fetchCar(ticket));
+        Assertions.assertThrows(NoSuchElementException.class,() ->parkingBoy.fetchCar(ticket));
     }
 
     @Test
