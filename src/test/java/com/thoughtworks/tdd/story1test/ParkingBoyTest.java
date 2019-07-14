@@ -15,7 +15,7 @@ import static org.hamcrest.CoreMatchers.is;
 
 public class ParkingBoyTest {
     @Test
-    public void should_return_car_when_given_ticket() {
+    public void should_return_car_when_given_ticket() throws Exception{
         //given
         Car car = new Car("C：12138");
         ParkingLot parkingLot = new ParkingLot();
@@ -28,7 +28,7 @@ public class ParkingBoyTest {
     }
 
     @Test
-    public void should_return_multiple_cars_when_given_correspond_ticket() {
+    public void should_return_multiple_cars_when_given_correspond_ticket() throws Exception{
         //given
         Car firstCar = new Car("C：12138");
         Car secondCar = new Car("C：12306");
@@ -60,7 +60,7 @@ public class ParkingBoyTest {
     }
 
     @Test
-    public void should_not_return_car_when_given_ticket_that_has_been_used() throws NullPointerException{
+    public void should_not_return_car_when_given_ticket_that_has_been_used() throws Exception,NullPointerException{
         //given
         Car car = new Car("C：12138");
         ParkingLot parkingLot = new ParkingLot();
@@ -73,7 +73,7 @@ public class ParkingBoyTest {
     }
 
     @Test
-    public void should_not_return_ticket_when_car_number_exceed_capacity() {
+    public void should_not_return_ticket_when_car_number_exceed_capacity() throws Exception{
         //given
         List<Car> Cars = new ArrayList<>();
         for (int i = 0; i <10 ; i++) {
@@ -82,10 +82,10 @@ public class ParkingBoyTest {
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
         //when
-        Cars.forEach(element -> {
+        for (Car element : Cars) {
             parkingBoy.parkCar(element);
-        });
+        }
         //then
-        assertThat(null, is(parkingBoy.parkCar(new Car("12110"))));
+        Assertions.assertThrows(Exception.class, () -> parkingBoy.parkCar(new Car("12110")));
     }
 }

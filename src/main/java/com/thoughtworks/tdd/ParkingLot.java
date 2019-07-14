@@ -11,9 +11,9 @@ public class ParkingLot {
         this.parkingCarTicket = new HashMap<>();
     }
 
-    public Ticket parkCarIntoParkingLot(Car car){
+    public Ticket parkCarIntoParkingLot(Car car) throws Exception{
         if(parkingCarTicket.size() >= capacity){
-            return null;
+            throw new Exception("Not enough position");
         }
         else {
             Ticket ticketNumber = new Ticket();
