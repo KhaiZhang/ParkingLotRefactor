@@ -17,9 +17,11 @@ public class ParkingLot {
     }
 
     public Car takeCarOutOfParkingLot(Ticket ticket){
-       if(parkingCarTicket.get(ticket) == null){
+        Car car =parkingCarTicket.get(ticket);
+       if(car == null){
            throw new NullPointerException("ticket is null or wrong");
        }
-       return parkingCarTicket.get(ticket);
+       parkingCarTicket.remove(ticket);
+       return car;
     }
 }

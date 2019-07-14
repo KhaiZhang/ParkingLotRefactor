@@ -54,4 +54,17 @@ public class ParkingBoyTest {
         Assertions.assertThrows(NullPointerException.class,() ->parkingBoy.fetchCar(nullTicket));
         Assertions.assertThrows(NullPointerException.class,() ->parkingBoy.fetchCar(wrongTicket));
     }
+
+    @Test
+    public void should_not_return_car_when_given_ticket_that_has_been_used() throws NullPointerException{
+        //given
+        Car car = new Car("C：12138");
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        //when
+        Ticket ticket = parkingBoy.parkCar(car);
+        Car fetchedCar = parkingBoy.fetchCar(ticket);
+        //then
+        Assertions.assertThrows(NullPointerException.class,() ->parkingBoy.fetchCar(ticket));
+    }
 }
