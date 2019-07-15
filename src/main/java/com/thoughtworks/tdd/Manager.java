@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class Manager {
+public class Manager extends ParkingBoy{
     private List<ParkingBoy> parkingBoys;
-    private List<ParkingLot> parkingLots;
 
     public Manager(List<ParkingLot> parkingLots) {
-        this.parkingLots = parkingLots;
+        super(parkingLots);
         this.parkingBoys = new ArrayList<>();;
     }
 
@@ -31,24 +30,12 @@ public class Manager {
         else throw new Exception("Unrecognized parking boy");
     }
 
-    public Ticket parkCar(Car car) throws Exception{
-        try {
-            return parkingLots.stream()
-                    .filter(parkingLot -> parkingLot.isParkingSpaceRemain())
-                    .findFirst()
-                    .get()
-                    .parkCarIntoParkingLot(car);
-        }catch (NoSuchElementException ex){
-            throw  new Exception("Not enough position");
-        }
-    }
-
     public Car fetchCar(Ticket ticket) throws Exception {
         if(ticket == null){
             throw new Exception("Please provide your parking ticket");
         }
         try {
-            return parkingLots.stream()
+            return this.getParkingLots().stream()
                     .filter(currentParkingLot -> currentParkingLot.isTheTicketForThisParkingLot(ticket))
                     .findFirst()
                     .get()
