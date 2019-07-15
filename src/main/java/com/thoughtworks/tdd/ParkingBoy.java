@@ -1,19 +1,19 @@
 package com.thoughtworks.tdd;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
 public class ParkingBoy {
-    private List<ParkingLot> parkingLots;
+    private ArrayList<ParkingLot> parkingLots;
 
-    public ParkingBoy(List<ParkingLot> parkingLots) {
-
+    public ParkingBoy(ArrayList<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
     }
 
-    public List<ParkingLot> getParkingLots() {
-        return parkingLots;
+    public ArrayList<ParkingLot> getParkingLots() {
+        return (ArrayList<ParkingLot>)parkingLots.clone();
     }
 
     public Ticket parkCar(Car car) throws Exception{

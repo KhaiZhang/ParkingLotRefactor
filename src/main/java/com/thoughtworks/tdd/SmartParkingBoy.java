@@ -1,12 +1,13 @@
 package com.thoughtworks.tdd;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 public class SmartParkingBoy extends ParkingBoy{
-    public SmartParkingBoy(List<ParkingLot> parkingLots) {
+    public SmartParkingBoy(ArrayList<ParkingLot> parkingLots) {
         super(parkingLots);
     }
 

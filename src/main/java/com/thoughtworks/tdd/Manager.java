@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
 public class Manager extends ParkingBoy{
     private List<ParkingBoy> parkingBoys;
 
-    public Manager(List<ParkingLot> parkingLots) {
+    public Manager(ArrayList<ParkingLot> parkingLots) {
         super(parkingLots);
         this.parkingBoys = new ArrayList<>();;
     }

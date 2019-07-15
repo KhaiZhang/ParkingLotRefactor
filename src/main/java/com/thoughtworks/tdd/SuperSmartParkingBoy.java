@@ -1,10 +1,11 @@
 package com.thoughtworks.tdd;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
 public class SuperSmartParkingBoy extends ParkingBoy{
-    public SuperSmartParkingBoy(List<ParkingLot> parkingLots) {
+    public SuperSmartParkingBoy(ArrayList<ParkingLot> parkingLots) {
         super(parkingLots);
     }
     @Override
