@@ -30,18 +30,4 @@ public class Manager extends ParkingBoy{
         else throw new Exception("Unrecognized parking boy");
     }
 
-    public Car fetchCar(Ticket ticket) throws Exception {
-        if(ticket == null){
-            throw new Exception("Please provide your parking ticket");
-        }
-        try {
-            return this.getParkingLots().stream()
-                    .filter(currentParkingLot -> currentParkingLot.isTheTicketForThisParkingLot(ticket))
-                    .findFirst()
-                    .get()
-                    .takeCarOutOfParkingLot(ticket);
-        }catch (NoSuchElementException ex){
-            throw new NoSuchElementException("Unrecognized parking ticket");
-        }
-    }
 }
