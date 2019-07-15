@@ -25,7 +25,7 @@ public class ParkingLot {
     }
 
     public boolean isParkingSpaceRemain(){
-        return parkingCarTicket.size() < capacity ? true : false;
+        return parkingCarTicket.size() < capacity ;
     }
 
     public boolean isTheTicketForThisParkingLot(Ticket ticket){
